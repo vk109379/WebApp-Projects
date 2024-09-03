@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background: url(https://images.hdqwalls.com/wallpapers/apple-macos-sequoia-hz.jpg) no-repeat; */
+    background: url(https://images.hdqwalls.com/wallpapers/lake-storm-morning-8k-mr.jpg) no-repeat;
+    /* background: url(https://images.hdqwalls.com/wallpapers/seascape-5k-ij.jpg) no-repeat; */
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    /* background: rgb(35, 132, 132); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em;
+    color: #000;
+    user-select: none;
+}
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after{
+    content: " ";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .2s;
+}
+
+.navigation a:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnlogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #000;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #000;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .3s;
+}
+
+.navigation .btnlogin-popup:hover{
+    background: #93caf5;
+    /* background: rgb(0, 0, 128); */
+    color: black;
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(100px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    transform: scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .2s ease, height .2s ease;
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 520px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 40px;
+    /* background: #93e145; */
+    background: #93caf5;
+    font-size: 1.7em;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.wrapper .icon-close:hover{
+    color: white;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin: 30px 0;
+
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: black;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #6eb7f0;
+    margin-right: none;
+}
+
+.remember-forgot a{
+    color: black;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.btn:hover{
+    /* background: rgba(147, 225, 69, 0.7); */
+    background: #93caf5;
+    color: black;
+    /* color: rgb(147, 225, 69); */
+    border-color: #fff;
+    transition: 0.3s;
+}
+
+.login-register{
+    font-size: 14.5px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    margin: 20px 0 15px;
+}
+
+.login-register p a{
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+/* Responsive design */
+
+@media only screen and (max-width: 780px){
+    header{
+        padding: 20px 50px;
+    }
+    .logo{
+        font-size: 1.5em;
+    }
+    .navigation a{
+        font-size: 1px;
+        margin-left: 20px;
+    }
+    .navigation .btnlogin-popup{
+        width: 100px;
+        height: 40px;
+        font-size: 1em;
+        margin-left: 20px;
+    }
+    .wrapper{
+        width: 350px;
+        height: 400px;
+    }
+    .form-box{
+        padding: 30px;
+    }
+    .wrapper.active .form-box.login{
+        transform: translateX(-350px);
+    }
+}
+
+@media only screen and (max-width: 480px){
+    header{
+        padding: 20px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .logo{
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .navigation {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navigation a{
+        font-size: 0.9px;
+        margin: 10px 0 ;
+    }
+    .navigation .btnlogin-popup{
+        width: 100px;
+        height: 40px;
+        font-size: 1em;
+        margin: 10px 0;
+    }
+    .wrapper{
+        width: 300px;
+        height: 380px;
+    }
+    .form-box{
+        padding: 20px;
+    }
+    .form-box  h2{
+        font-size: 1.5em;
+    }
+    .input-box label{
+        font-size: 1em;
+    }
+    .btn{
+        height: 40px;
+        font-size: 14px;
+    }
+    .wrapper.active .form-box.login{
+        transform: translateX(-300px);
+    }
+}
