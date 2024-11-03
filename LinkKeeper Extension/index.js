@@ -22,7 +22,7 @@ tabBtn.addEventListener("click", function(){
     })
 })
 
-//Function to take array elements and convert them into list of clicable links and render on screen
+//Function to take array elements and convert them into list of clickable links and render on screen
 function render(links){ 
     let listItems = ""
     for(let i = 0; i < links.length; i++){
